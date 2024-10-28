@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erdemserhat.harmonyadmin.model.NotificationDto
+import com.erdemserhat.harmonyadmin.model.NotificationSpecificDto
 import com.erdemserhat.harmonyadmin.usecase.NotificationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,7 +18,20 @@ class NotificationViewModel @Inject constructor(
     fun sendNotification(notificationDto: NotificationDto) {
         viewModelScope.launch {
             try {
-                notificationUseCase.invoke(notificationDto)
+                notificationUseCase.pushNotification(notificationDto)
+
+            }catch (e:Exception){
+                Log.d("NOTIFICATION-VIEWMODEL-LOGS", e.message.toString())
+            }
+        }
+
+
+    }
+
+    fun sendNotificationSpecific(notificationSpecificDto: NotificationSpecificDto) {
+        viewModelScope.launch {
+            try {
+                notificationUseCase.pushNotificationSpecific(notificationSpecificDto)
 
             }catch (e:Exception){
                 Log.d("NOTIFICATION-VIEWMODEL-LOGS", e.message.toString())

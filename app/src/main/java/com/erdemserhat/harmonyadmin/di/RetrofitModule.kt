@@ -21,7 +21,7 @@ object RetrofitModule {
         client: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://212.87.233.40:5000/api/v1/")
+            .baseUrl(BuildConfig.SERVER_IP)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

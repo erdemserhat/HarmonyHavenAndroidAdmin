@@ -45,7 +45,7 @@ android {
                 buildConfigField("String", "SERVER_IP", "\"http://212.87.233.40:5000/api/v1/\"")
             }
             getByName("release") {
-                buildConfigField("String", "SERVER_IP", "\"http://212.87.233.40:5000/api/v1/\"")
+                buildConfigField("String", "SERVER_IP", "\"http://51.20.136.184:5000/api/v1/\"")
             }
         }
     }
